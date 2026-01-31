@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <script src="assets/vendor/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/components.js"></script>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+/>
+
+<style>
+
+#map-container{
+  width:95%;
+  max-width:1400px;
+  margin:30px auto;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+#map{
+  height:80vh;
+  width:100%;
+  border-radius:16px;
+}
+
+.custom-marker{
+  width:22px;
+  height:22px;
+  background:linear-gradient(45deg,#4a3fa0,#7a5ee0);
+  border:3px solid #fff;
+  border-radius:50%;
+  box-shadow:0 0 0 14px rgba(122,94,224,.3);
+}
+
+.leaflet-popup-content-wrapper{
+  background:#fff;
+  color:#333;
+  border-radius:12px;
+  padding:1px;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content{
+  margin: 0;
+}
+.leaflet-popup-content-wrapper .leaflet-popup-content img{
+  width: 100%;
+  margin: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin: -1px;
+}
+.leaflet-popup-tip{
+  background:#7a5ee0;
+}
+.popup-box{
+  width:280px;
+  text-align:center;
+}
+.popup-box h3{
+  margin:0;
+  padding:10px;
+  font-size:16px;
+  background:linear-gradient(45deg,#4a3fa0,#7a5ee0);
+  color:#fff;
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+}
+.popup-box img{
+  width:90%;
+  border-radius:10px;
+  margin:8px 0;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+.popup-box p{
+  margin:8px 10px;
+  font-size:14px;
+  line-height:1.3;
+}
+.popup-box a{
+  display:inline-block;
+  margin:10px 0 12px 0;
+  padding:8px 12px;
+  background:#4a3fa0;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  transition:all .3s;
+}
+.popup-box a:hover{
+  background:#7a5ee0;
+  transform:scale(1.05);
+}
+
+.marker-tooltip{
+  background: rgba(74,63,160,0.9);
+  color:#fff;
+  font-weight:bold;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:13px;
+}
+
+.leaflet-tile {
+  filter: sepia(100%) hue-rotate(215deg) saturate(300%) brightness(0.75);
+}
+
+footer{
+  background:#302b70;
+  color:#fff;
+  text-align:center;
+  padding:25px 10px;
+  font-size:16px;
+  margin-top:40px;
+  box-shadow:0 -5px 15px rgba(0,0,0,.2);
+}
+
+footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer a:hover{
+  color:#ffdd59;
+}
+
+    #map-container {
+     margin: 14% auto 6% auto!important;
+    }
+      .header-main {
+      margin: 10px 14px!important;
+      background-color: #302b70d9!important;
+    }
+  @media (max-width: 768px) {
+    .header-main {
+      margin: 10px 14px!important;
+      background-color: #302b70d9!important;
+    } 
+    #map-container {
+     margin: 22% auto 6% auto!important;
+    }
+  }
+</style>
+</head>
+
+<body class="body-wrapper dark body-digital-agency font-heading-instrumentsans-medium bg-white">
+
+
+<div id="preloader" dir="ltr">
+  <div id="container" class="container-preloader">
+    <!-- شعار متحرك -->
+    <div class="logo-preloader">
+      <span class="versaisa-letter">V</span>
+      <span class="versaisa-letter">E</span>
+      <span class="versaisa-letter">R</span>
+      <span class="versaisa-letter">S</span>
+      <span class="versaisa-letter">A</span>
+      <span class="versaisa-letter">I</span>
+      <span class="versaisa-letter">S</span>
+      <span class="versaisa-letter">A</span>
+    </div>
+
+    <!-- أقسام الانزلاق -->
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+</div>
+
+<script></script>
+<!-- Sroll to top -->
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+    </svg>
+  </div>
+
+  <!-- cursorAnimation start -->
+  <div class="cursor-wrapper relative">
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+  </div>
+  <!-- cursorAnimation end -->
+
+  <!-- side toggle start -->
+  <aside class="fix">
+  </aside>
+  <div class="offcanvas-overlay"></div>
+  <!-- side toggle end -->
+
+  <!-- Header area start -->
+<header class="header-area-2 index_1 map_id" style="z-index: 2222;">
+    <div class="header-main" style="background-color: rgba(48, 43, 112, 0.85)!important;
+    width: auto !important;;
+    border-radius: 10px!important;
+    margin: 10px 30px!important;
+    " >
+      <div class="container-fluid large ">
+        <div class="header-area-2__inner d-flex flex-column py-2">
+          <div class="header__navicon">
+            <button class="side-toggle"><img src="assets/imgs/icon/icon-2.webp" alt="image"></button>
+          </div>
+          
+         
+          
+         
+          <div class="header__logo w-100 d-flex align-items-center justify-content-between px-3 text-center align-items flex-row border_header">
+
+            <div class="line_hr col-5">
+              <hr class="my-4" style="border-top: 2px solid #fff;">
+            </div>
+
+            <a href="index.html" style="background-color: white;">
+              <img src="assets/imgs/logo_1.png" width="60px" height="60px" class="normal-logo" alt="Site Logo">
+            </a>
+
+            <div class="line_hr col-5">
+              <hr class="my-4" style="border-top: 2px solid #fff;">
+            </div>
+
+          </div>
+ <div class="button_header2 d-flex w-100">
+
+            <div class="header__nav mx-0 pos1-center">
+            <nav class="main-menu">
+              <ul>
+                <li class="mx-3"><a href="about.html" style="font-size: 20px;">عن فرساي</a></li>
+                <li class="mx-3"><a href="portfolio.html" style="font-size: 20px;">مشاريعنا</a></li>
+                <li class="mx-3"><a href="map.html" style="font-size: 20px;">الخريطة العقارية</a></li>
+              </ul>
+            </nav>
+          </div>
+          
+         <!-- <div class="button_header">
+            <button class="">
+                  <a class=" header-button"  href="https://wa.me/0559604044" target="_blank">
+                تواصل معنا
+              </a>
+            </button>
+          </div>-->
+          
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Header area end -->
+
+  <a id="whatsapp-btn" href="https://wa.me/0559604044" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" alt="واتساب">
+  </a>
+      
+  <div class="has-smooth" id="has_smooth"></div>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main style="background: linear-gradient(145deg, #f5f5fa, #e8e8f5)!important">
+
+<div id="map-container">
+  <div id="map"></div>
+</div>
+
+      <footer class="footer-modern footer-area-inner-page section-spacing-top "></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const map = L.map('map').setView([24.813174546502665,46.60902763154743],12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap'
+  }).addTo(map);
+
+  const projects=[
+    {name:"فرساي 1",lat:24.813174546502665,lng:46.60902763154743,desc:"توثيق ميداني لكل مراحل المشروع",img:"about_section.jpg",link:"project.html?id=versaisa_1"},
+    {name:"فرساي 2",lat:24.808273369315476,lng:46.5923057962587,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_2"},
+    {name:"فرساي 3",lat:24.805672701262356,lng:46.600231380915154,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_3"},
+    {name:"فرساي 4",lat:24.81368014452884,lng:46.608326611602024,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_4"},
+    {name:"فرساي 5",lat:24.70485492781197,lng:46.63333653858387,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_5"},
+    {name:"فرساي 6",lat:24.829764528944963,lng:46.586755215017604,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_6"},
+    {name:"فرساي 7",lat:24.8641283994999,lng:46.669576911603365,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_7"},
+    {name:"فرساي 8",lat:24.90304032900168,lng:46.63807704229119,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_8"},
+    {name:"فرساي 9",lat:24.82668378529411,lng:46.58851806557257,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_9"},
+    {name:"فرساي 10",lat:24.774122006681125,lng:46.61213619625765,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_10"},
+    {name:"فرساي 11",lat:24.816651087452883,lng:46.60015530975139,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_11"},
+    {name:"فرساي 12",lat:24.842929510247618,lng:46.67072513858797,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_12"},
+    {name:"فرساي 13",lat:24.859258220354423,lng:46.65633513858835,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_13"},
+    {name:"فرساي 14",lat:24.815341941915857,lng:46.59038193858727,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_14"},
+    {name:"فرساي 15",lat:24.82176383512652,lng:46.624276496259085,desc:"تغطية كاملة لمراحل التنفيذ",img:"about_section.jpg",link:"project.html?id=versaisa_15"}
+  ];
+
+  projects.forEach(p=>{
+    const icon = L.divIcon({className:'', html:`<div class="custom-marker"></div>`, iconSize:[22,22]});
+    L.marker([p.lat,p.lng],{icon}).addTo(map)
+      .bindPopup(`
+        <div class="popup-box">
+          <h3>${p.name}</h3>
+          <img src="${p.img}" alt="${p.name}">
+          <a href="${p.link}" target="_blank">عرض المشروع</a>
+        </div>
+      `)
+      .bindTooltip(p.name,{
+        permanent:true,
+        direction:"top",
+        offset:[0,-15],
+        className:"marker-tooltip"
+      });
+  });
+
+});
+</script>
+       </main>
+
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery-3.7.1.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.magnific-popup.min.js"></script>
+  <script src="assets/vendor/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/ScrollSmoother.min.js"></script>
+  <script src="assets/vendor/ScrollToPlugin.min.js"></script>
+  <script src="assets/vendor/SplitText.min.js"></script>
+  <script src="assets/vendor/TextPlugin.js"></script>
+  <script src="assets/vendor/customEase.js"></script>
+  <script src="assets/vendor/Flip.min.js"></script>
+  <script src="assets/vendor/jquery.meanmenu.min.js"></script>
+  <script src="assets/vendor/backToTop.js"></script>
+  <script src="assets/vendor/matter.js"></script>
+  <script src="assets/vendor/throwable.js"></script>
+  <script src="assets/js/magiccursor.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/script.js"></script>
+  
+<script>
+  AOS.init();
+</script>
+  <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+<script>
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header-main');
+  if (!header) return;
+
+  if (window.scrollY > 50) {
+    header.style.backgroundColor = '#302b70d9!important';
+    header.style.backdropFilter = 'blur(6px)';
+    header.style.webkitBackdropFilter = 'blur(6px)';
+    header.style.width = 'auto';
+    header.style.borderRadius = '10px';
+    header.style.margin = '10px!important';
+     header.classList.remove('mx-0');
+  } else {
+    header.style.backgroundColor = '#302b70d9!important';
+    header.style.backdropFilter = 'blur(6px)';
+    header.style.webkitBackdropFilter = 'blur(6px)';
+    header.style.width = 'auto!important';
+    header.style.borderRadius = '10px';
+    header.style.margin = '10px!important'; header.classList.remove('mx-0');
+  }
+});
+</script>
+
+</body>
+
+</html>

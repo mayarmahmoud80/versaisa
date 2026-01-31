@@ -6,65 +6,77 @@
   <script src="assets/js/components.js"></script>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+/>
+<style>
+.success-card {
+  backdrop-filter: blur(2px);
+  background: linear-gradient(130deg,#241f5c 0%,#302b70 50%,#3c3790 100%);
+}
+.icon-wrapper {
+  background: rgb(255 255 255 / 6%);
+}
+.success-number {
+  color: #fff;
+}
+.success-text {
+  color: #f0f0f0;
+}
+
+/* تلوين الطرق بلون #302b70 */
+.leaflet-tile {
+  filter: sepia(100%) hue-rotate(215deg) saturate(300%) brightness(0.75)!important;
+}
+</style>
 </head>
 
-<body class="body-wrapper dark body-digital-agency font-heading-instrumentsans-medium bg-white">
 
-  <!-- Preloader -->
+<body class="body-wrapper dark body-digital-agency font-heading-instrumentsans-medium" style="background-color: #241f5c!important;">
 
 
-<!--<div id="preloader">
-    <div class="roya">
-      <span>R</span>
-      <span>O</span>
-      <span>Y</span>
-      <span>A</span>
+<div id="preloader" dir="ltr">
+  <div id="container" class="container-preloader">
+    <!-- شعار متحرك -->
+    <div class="logo-preloader">
+      <span class="versaisa-letter">V</span>
+      <span class="versaisa-letter">E</span>
+      <span class="versaisa-letter">R</span>
+      <span class="versaisa-letter">S</span>
+      <span class="versaisa-letter">A</span>
+      <span class="versaisa-letter">I</span>
+      <span class="versaisa-letter">S</span>
+      <span class="versaisa-letter">A</span>
     </div>
-  </div>  
- <script>
-    window.addEventListener("load", () => {
-      const preloader = document.getElementById("preloader");
 
-      preloader.classList.add("hidden");
-
-      setTimeout(() => {
-        preloader.style.display = "none";
-        document.body.classList.add("loaded");
-
-        // ✅ إعادة التمرير
-        document.body.style.overflow = "auto";
-        document.documentElement.style.overflow = "auto";
-      }, 700);
-    });
-  </script>-->
-<div id="preloader">
-    <div id="container" class="container-preloader">
-      <div class="animation-preloader">
-        <div class="spinner"></div>
-
-      </div>
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-    </div>
-  </div>  
-
-  <!-- Sroll to top -->
+    <!-- أقسام الانزلاق -->
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+</div>
   <div class="progress-wrap">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
     </svg>
   </div>
 
-  <!-- cursorAnimation start -->
   <div class="cursor-wrapper relative">
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
   </div>
-  <!-- cursorAnimation end -->
 
   <!-- side toggle start -->
   <aside class="fix">
@@ -73,56 +85,50 @@
   <!-- side toggle end -->
 
   <!-- Header area start -->
-<header class="header-area-2 index_1 pt-3" style="background-color: transparent!important;">
+<header class="header-area-2 index_1" style="background-color: transparent!important;">
   </header>
 
   <!-- Header area end -->
 
+  <a id="whatsapp-btn" href="https://wa.me/0559604044" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" alt="واتساب">
+  </a>
+      
   <div class="has-smooth" id="has_smooth"></div>
   <div id="smooth-wrapper">
     <div id="smooth-content">
       <main>
    
-              <!-- video-box   -->
-        <div class="video_index" style="position: relative; height: 100vh; width: 100%; overflow: hidden;">
+        
+        <div class="video_index">
 
-          <video id="bgVideo" autoplay muted loop playsinline
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-          <source src="https://res.cloudinary.com/dampwi1tt/video/upload/v1764680592/istockphoto-1453963806-640_adpp_is_wqpzpq.mp4" type="video/mp4">
+          <video id="bgVideo" autoplay muted loop playsinline>
+          <source src="91744-636709154_1_1.mp4" type="video/mp4">
           </video>
 
-          <div id="openVideoBtnWrapper" class="all-btn-wrapper pm-5"
-          style="position: absolute; bottom: 40px; right: 0; padding: 30px; z-index: 2; ">
-          <div class="card-btn">
-            <h1> اكتشف عالم فرساي العقاري</h1>
-            <p class="text-white font-16 py-5">ارفع تجربتك العقارية إلى مستوى جديد مع فرساي - حيث تلتقي الفخامة بالراحة في قلب المملكة العربية السعودية.</p>
-          </div>
+          <div id="openVideoBtnWrapper" class="video_btn all-btn-wrapper pm-5">
           <div class="d-flex justify-space-between flex-wrap gap-3">
-            <button class="rr-btn btn-border mb-3 p-2 col-3">
-            <a href="#location_section">
+            <button class="rr-btn btn-border mb-3 col-5 col-md-2 p-0 py-3">
+            <a class="" href="https://wa.me/0559604044" target="_blank">
             <span class="btn-wrap">
               <span class="text-one pb-1">تواصل معنا</span>
               <span class="text-two pb-1">تواصل معنا</span>
             </span></a>
             </button>
-             <button class="rr-btn btn-border mb-3 p-2 col-3">
-            <a href="#why_section">
+             <button class="rr-btn btn-border mb-3 col-5 col-md-2 p-0 py-3">
+            <a href="#about">
             <span class="btn-wrap">
               <span class="text-one pb-1">لماذا فرساي</span>
               <span class="text-two pb-1">لماذا فرساي</span>
             </span></a>
             </button>
+            
           </div>
           
         </div>
         
-        <div id="videoControlCenter"
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3;
-        opacity: 0; pointer-events: none; transition: opacity 0.4s ease;">
-        <button id="playPauseBtn" onclick="togglePlayPause()"
-        style="background: rgba(0, 0, 0, 0.6); border: none; color: white; font-size: 32px; padding: 20px;
-        cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        width: 80px; height: 80px; transition: background 0.3s ease;">
+        <div id="videoControlCenter">
+        <button id="playPauseBtn" onclick="togglePlayPause()">
         <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#fff" viewBox="0 0 16 16">
           <path d="M5.5 3.5A.5.5 0 0 1 6 4v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm5 
           0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z" />
@@ -134,246 +140,223 @@
         </button>
         </div>
       </div>
-      <!-- video-box  end -->
-       <section class=" bg-white">
-        <div class="conainer m-5 p-5">
-          <div class="video_text_index d-flex flex-column  h-100">
-            <h2 class=" mb-3 text-black bold">احدث المشاريع</h2>
-            <p class="font-16">نقدم لك افضل وارقى المشاريع العقارية المميزة في المملكة العربية السعودية</p>
-          </div>
 
-          <!--<div class="scroll_down_indicator text-center">
-            <span class="scroll-text text-black">مرر للأسفل</span>
-            <br>
-            <a href="#location_section">
-              <span class="scroll-icon">
-                <i class="fa fa-angle-down text-black" aria-hidden="true"></i>
-              </span>
-            </a>
-          </div>-->
-          <div class="row">
+<section class="section-versailles h-auto" style="background: linear-gradient(180deg,#f7f8fc,#ffffff);" id="about" dir="rtl">
+  <h1>لماذا تختار فرساي؟</h1>
+  <p class="description">
+    نحن نؤمن في فرساي بأن السكن المثالي يجمع بين جودة البناء، الخبرة،
+    الموقع الاستراتيجي، والتصاميم الفاخرة.
+  </p>
 
-            <div class="col-md-4 col-12 project_section border-card-project p-3 bg">
-              <a href="#"><div class="card ">
-                <img  src="assets/imgs/project_img2.jpg" class="card-img" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-black">فرساي 15</h5>
-                  <p style="font-size: 16px;"> الرياض - الياسمين  </p>
-                </div>
-                  <div class="d-flex justify-content-center">
-                    <hr class="text-center col-10">
-                  </div>
+  <div class="row align-items-center justify-space-between g-5" style="justify-content: space-between;">
+    <div class="feature-cards col-md-5" dir="rtl">
+      <div class="feature-card">
+        <i class="fa-solid fa-building"></i>
+        <h5>جودة البناء</h5>
+        <p>نلتزم بأعلى معايير الجودة مع ضمانات طويلة الأمد.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-user-gear"></i>
+        <h5>خبرة واسعة</h5>
+        <p>21 مشروعًا منذ 2006 بخبرة متراكمة.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <h5>مواقع استراتيجية</h5>
+        <p>قريبة من جميع الخدمات الحيوية.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-pencil-ruler"></i>
+        <h5>تصاميم مميزة</h5>
+        <p>عصرية بتشطيبات فاخرة.</p>
+      </div>
+    </div>
 
-                  <div class="d-flex" style="font-size: 14px;">
-                    <div class="col-6 d-flex">
-                      <span class="col-2"><i class=" text-black fa-solid fa-money-bill-1"></i></span>
-                      <div class="col-10 d-flex flex-column">
-                        <span class="color-font">ابتداء من</span>
-                        <div><span class="text-black bold">1,200,0</span><span class="color-font">ر.س</span></div>
-                    </div>
-                    </div>
-                    
-                    <div class="col-6  d-flex">
-                      <span class="col-2"><i class="fa-solid fa-house"></i></span>
-                      <div class="col-10 d-flex flex-column">
-                        <span class="col-10 color-font">المساحات من</span>
-                        <div><span class="text-black bold">120 </span><span class="color-font">م²</span></div>
-                    </div>
-                    </div>
-                  </div>
-
-                  <div class="card-btn d-flex">
-                    <a href="#" class="btn-1 col-6 btn mt-3">تواصل معنا</a>
-                    <a href="#" class="btn-2 col-6 btn mt-3">تواصل معنا</a>
-                  </div>
-
-              </div></a>
-            </div>
-            <div class="col-md-4 col-12 project_section border-card-project p-3 bg">
-              <a href="#"><div class="card ">
-                <img  src="assets/imgs/project_img1.jpg" class="card-img" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-black">فرساي 14</h5>
-                  <p style="font-size: 16px;"> الرياض - حـــــي الملقا </p>
-                </div>
-                  <div class="d-flex justify-content-center">
-                    <hr class="text-center col-10">
-                  </div>
-
-                  <div class="d-flex" style="font-size: 14px;">
-                    <div class="col-6 d-flex">
-                      <span class="col-2"><i class=" text-black fa-solid fa-money-bill-1"></i></span>
-                      <div class="col-10 d-flex flex-column">
-                        <span class="color-font">ابتداء من</span>
-                        <div><span class="text-black bold">1,200,0</span><span class="color-font">ر.س</span></div>
-                    </div>
-                    </div>
-                    
-                    <div class="col-6  d-flex">
-                      <span class="col-2"><i class="fa-solid fa-house"></i></span>
-                      <div class="col-10 d-flex flex-column">
-                        <span class="col-10 color-font">المساحات من</span>
-                        <div><span class="text-black bold">120 </span><span class="color-font">م²</span></div>
-                    </div>
-                    </div>
-                  </div>
-
-                  <div class="card-btn d-flex">
-                    <a href="#" class="btn-1 col-6 btn mt-3">تواصل معنا</a>
-                    <a href="#" class="btn-2 col-6 btn mt-3">تواصل معنا</a>
-                  </div>
-
-              </div></a>
-            </div>
-            
-
-          </div>
+    <div class="col-md-6">
+      <div class="carousel">
+        <div class="slide active">
+          <img src="assets/imgs/project/01.jpg">
+          <div class="slide-text"><h2>فرساي 1</h2></div>
+        </div>
+        <div class="slide">
+          <img src="assets/imgs/project/02.jpg">
+          <div class="slide-text"><h2>فرساي 2</h2></div>
+        </div>
+        <div class="slide">
+          <img src="assets/imgs/project/03.jpg">
+          <div class="slide-text"><h2>فرساي 3</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/04.jpg">
+          <div class="slide-text"><h2>فرساي 4</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/05.jpg">
+          <div class="slide-text"><h2>فرساي 5</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/06.jpg">
+          <div class="slide-text"><h2>فرساي 6</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/07.jpg">
+          <div class="slide-text"><h2>فرساي 7</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/08.jpg">
+          <div class="slide-text"><h2>فرساي 8</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/09.jpg">
+          <div class="slide-text"><h2>فرساي 9</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/10.jpg">
+          <div class="slide-text"><h2>فرساي 10</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/11.jpg">
+          <div class="slide-text"><h2>فرساي 11</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/13.jpg">
+          <div class="slide-text"><h2>فرساي 13</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/14.jpg">
+          <div class="slide-text"><h2>فرساي 14</h2></div>
+        </div>
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
 
         </div>
-       </section>
-
-      
-<section 
-id="location_section" 
-class="location_section padding-top-80 padding-bottom-80 bg-white p-5" 
-style="height: 100vh;"
->
-  <div class="container-fluid h-100 px-0">
-    <div class="location_section_text padding-bottom-80 py-5">
-      <h2 class=" text-black">تغطيات</h2>
-      <p class="">نفخر فخرًا بأن مشاريعنا تمتد عبر أرقى وأهم المواقع في المملكة العربية السعودية، حيث نختار بعناية كل موقع لضمان تقديم تجربة سكنية فريدة تجمع بين الراحة، الفخامة، والسهولة في الوصول إلى المرافق الحيوية.</p>
+      </div>
     </div>
-    <div class="row h-100 d-flex justify-content-between gx-1 gy-1 mx-1">
-      <div class="col-12 col-md-3 h-auto">
-        <a href="#">
-        <div class="card h-80">
-            <div class="h-100" style=" position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
+  </div>
+</section>
 
-          <video id="bgVideo" autoplay muted loop playsinline
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-          <source src="https://res.cloudinary.com/dampwi1tt/video/upload/v1764680592/istockphoto-1453963806-640_adpp_is_wqpzpq.mp4" type="video/mp4">
-          </video>
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white">الشقق </h2>
-            </div>
-          <!--</div><div class="card-body text-center" style="background-image: url(assets/imgs/roya-imgs/branding_img.jpg); background-size: cover; background-position: center; height: 200px; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">-->
-        </div></a>
-      </div>
-      <div class="col-12 col-md-3 h-auto">
-        <a href="#">
-        <div class="card h-80">
-            <div class="h-100" style=" position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
+      <section class="projects my-5">
+  <div class="container-fluid">
 
-          <video id="bgVideo" autoplay muted loop playsinline
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-          <source src="https://res.cloudinary.com/dampwi1tt/video/upload/v1764680592/istockphoto-1453963806-640_adpp_is_wqpzpq.mp4" type="video/mp4">
-          </video>
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white">الشقق </h2>
-            </div>
-          <!--</div><div class="card-body text-center" style="background-image: url(assets/imgs/roya-imgs/branding_img.jpg); background-size: cover; background-position: center; height: 200px; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">-->
-        </div></a>
-      </div>
-      <div class="col-12 col-md-3 h-auto">
-        <a href="#">
-        <div class="card h-80">
-            <div class="h-100" style=" position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
+    <div class="d-flex flex-column h-100 mb-4 text-center">
+      <h2 class="mb-3 text-black bold">احدث المشاريع</h2>
+      <p class="font-16">نقدم لك افضل وارقى المشاريع العقارية المميزة في المملكة العربية السعودية</p>
+    </div>
 
-          <video id="bgVideo" autoplay muted loop playsinline
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-          <source src="https://res.cloudinary.com/dampwi1tt/video/upload/v1764680592/istockphoto-1453963806-640_adpp_is_wqpzpq.mp4" type="video/mp4">
-          </video>
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white">الشقق </h2>
-            </div>
-          <!--</div><div class="card-body text-center" style="background-image: url(assets/imgs/roya-imgs/branding_img.jpg); background-size: cover; background-position: center; height: 200px; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">-->
-        </div></a>
-      </div>
-      <div class="col-12 col-md-3 h-auto">
-        <a href="#">
-        <div class="card h-80">
-            <div class="h-100" style=" position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
+    <div class="position-relative px-2">
+      <div id="projectsContainer" class="projects-scroll"></div>
+    </div>
 
-          <video id="bgVideo" autoplay muted loop playsinline
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-          <source src="https://res.cloudinary.com/dampwi1tt/video/upload/v1764680592/istockphoto-1453963806-640_adpp_is_wqpzpq.mp4" type="video/mp4">
+        <div class="project_btn d-flex justify-content-left mt-3 gap-2 px-5">
+      <button class="btn" onclick="scrollProjects(1)">→</button>
+      <button class="btn" onclick="scrollProjects(-1)">←</button>
+    </div>
+
+  </div>
+</section>
+
+
+<section style="padding:50px 0;"  dir="rtl">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color:#000;font-family: inherit;
+    font-weight: 600; font-size: 20px;">تغطيات المشاريع</h2>
+
+    <div class="projects-scroll">
+
+      <div class="project-item">
+        <img src="assets/imgs/video_img.jpg" alt="Project 1">
+        <div class="play-btn">▶</div>
+        <div class="video-wrapper">
+          <video muted playsinline controls>
+            <source src="versay versay.mp4" type="video/mp4">
           </video>
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white">الشقق </h2>
-            </div>
-          <!--</div><div class="card-body text-center" style="background-image: url(assets/imgs/roya-imgs/branding_img.jpg); background-size: cover; background-position: center; height: 200px; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;">-->
-        </div></a>
+          <div class="close-video">✕</div>
+        </div>
       </div>
-      
+
     </div>
   </div>
 </section>
 
 
-<!--<section id="why_section" class="why_section bg-white p-5" >
-  <div class="container-fluid p-0">
-    <div class="row h-100 d-flex justify-content-center gx-0 gy-0">
-      <div class="col-12 col-md-4 h-auto">
-        <div class="card h-100">
-            <div class="h-100" style="z-index: 0; position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
-              <img class="bg h-100 w-100" src="assets/imgs/image_1.jpg" alt="background" loading="lazy">
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "card_text_why d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white"> من نحن</h2>
-              <p class="text-white">شركة عقارية واعدة، تعمل بطريقة مختلفة وعصرية بعيداً عن الطرق التقليدية. نصنع من العقار منتجاً منذ عام 2008</p>
-            </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-4 h-auto">
-        <div class="card h-100">
-            <div class="h-100" style="z-index: 0; position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
-              <img class="bg h-100 w-100" src="assets/imgs/image1.jpg" alt="background" loading="lazy">
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "card_text_why d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white">الهدف</h2>
-              <p class="text-white">مواكبةً مقتضيات المرحلة الحالية والمستقبلية وانطلاقاً من رؤيتنا الشاملة لواقع سوق العقار السعودي لنتميز</p>
-            </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-4 h-auto">
-        <div class="card h-100">
-            <div class="h-100" style="z-index: 0; position: absolute;height: 25vh; width: 100%; overflow: hidden; top: 0; left: 0;">
-              <img class="bg h-100 w-100" src="assets/imgs/image_1.jpg" alt="background" loading="lazy">
-            </div>
-            <div class="overlay"></div>
-            <div style="z-index:111; position: relative; text-align: center; color: white;"class= "card_text_why d-flex flex-column justify-content-center align-items-center h-100" ">
-              <h2 class="card-title text-white"> رسالتنا</h2>
-              <p class="text-white">أن نصنع بصمة شاملة من الخدمات العقارية والخيارات المتميـزة والمبتكـرة عاليـة الجــودة، لنرتقي بهــا لجــودة الحـيــــــاة وتحقـــق تنميـــــة المجتمع.</p>
-            </div>
-        </div>
-      </div>
-     
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<h2 class="text-black py-5">مشاريع الشركة على الخريطة</h2>
+
+<section id="map-section">
+  <div id="map-wrapper" class="container p-0">
+    <div id="map"></div>
+
+    <div class="map-overlay" id="mapOverlay">
+      <button id="openMapBtn">عرض الخريطة</button>
     </div>
+
+    <button id="closeMapBtn">✕</button>
   </div>
-</section>-->
-        <!-- hero area start  -->
+</section>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 
-      </main>
+<section class=" mt-5">
+  <div class="container-fluied ">
 
-      <!-- footer area start  -->
-      <footer1 class="footer-area-inner-page section-spacing-top mt-'"
-        data-aos="fade-up"
-  data-aos-duration="1200"
-  data-aos-easing="ease-out-cubic"
-  data-aos-anchor-placement="top-bottom"></footer>
+    <div class="bg_section">
+
+
+   <div class="row bg_section_card d-flex justify-content-center py-3 gap-2" >
+    <div class="success-card col-5 col-md-2">
+        <div class="icon-wrapper">
+          <img src="https://img.icons8.com/ios-filled/64/ffffff/building.png" alt="مشاريع">
+        </div>
+        <h3 class="success-number" data-target="150">0</h3>
+        <p class="success-text">مشروع مكتمل</p>
+      </div>
       
-      <!-- footer area end  -->
+      <div class="success-card  col-5 col-md-2">
+        <div class="icon-wrapper">
+          <img src="https://img.icons8.com/ios-filled/64/ffffff/handshake.png" alt="عملاء">
+        </div>
+        <h3 class="success-number" data-target="1200">0</h3>
+        <p class="success-text">عميل سعيد</p>
+      </div>
+
+      <div class="success-card  col-5 col-md-2">
+        <div class="icon-wrapper">
+          <img src="https://img.icons8.com/ios-filled/64/ffffff/handshake.png" alt="عملاء">
+        </div>
+        <h3 class="success-number" data-target="1200">0</h3>
+        <p class="success-text">عميل سعيد</p>
+      </div>
+    
+      <div class="success-card  col-5 col-md-2">
+  <div class="icon-wrapper">
+    <img src="https://img.icons8.com/ios-filled/64/ffffff/world-map.png" alt="مناطق المشاريع">
+  </div>
+  <h3 class="success-number" data-target="10">0</h3>
+  <p class="success-text">مناطق المشاريع</p>
+      </div>
+
+
+  </div> </div>
+</section>
+
+
+       </main>
+<footer class="footer-modern footer-area-inner-page d-block mt-0"></footer>
 
     </div>
   </div>
@@ -399,8 +382,9 @@ style="height: 100vh;"
   <script src="assets/js/magiccursor.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="assets/js/index_sction/section_index.js"></script>
-  
+  <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/script_section.js"></script>
 <script>
   AOS.init();
 </script>
@@ -408,7 +392,6 @@ style="height: 100vh;"
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
 
   <!-- Featured Projects Dynamic Content -->
   <script>
@@ -421,7 +404,7 @@ style="height: 100vh;"
   const playIcon = document.getElementById("playIcon");
 
   let controlTimeout;
-  let videoEnabled = false; // ⛔ مبدئياً الفيديو مش متاح للتحكم
+  let videoEnabled = false; 
 
   function enableVideoSound() {
     video.muted = false;
@@ -431,7 +414,7 @@ style="height: 100vh;"
 
     btnWrapper.style.display = "none";
     hideControl();
-    videoEnabled = true; // ✅ الآن ممكن التفاعل مع الفيديو
+    videoEnabled = true; 
 
     pauseIcon.style.display = "block";
     playIcon.style.display = "none";
@@ -486,68 +469,6 @@ style="height: 100vh;"
     hideControl();
     videoEnabled = false; // 🔒 رجّع الحالة الأصلية
   });
-
-/*  const video = document.getElementById("bgVideo");
-  const btnWrapper = document.getElementById("openVideoBtnWrapper");
-  const centerControl = document.getElementById("videoControlCenter");
-  const playPauseBtn = document.getElementById("playPauseBtn");
-  const pauseIcon = document.getElementById("pauseIcon");
-  const playIcon = document.getElementById("playIcon");
-
-  let controlTimeout;
-
-  function enableVideoSound() {
-    video.muted = false;
-    video.currentTime = 0;
-    video.loop = false;
-    video.play();
-
-    btnWrapper.style.display = "none";
-    hideControl(); 
-    pauseIcon.style.display = "block";
-    playIcon.style.display = "none";
-  }
-
-  function togglePlayPause() {
-    if (video.paused) {
-      video.play();
-      pauseIcon.style.display = "block";
-      playIcon.style.display = "none";
-    } else {
-      video.pause();
-      pauseIcon.style.display = "none";
-      playIcon.style.display = "block";
-    }
-  }
-
-  function showControl() {
-    clearTimeout(controlTimeout);
-    centerControl.style.opacity = "1";
-    centerControl.style.pointerEvents = "auto";
-    controlTimeout = setTimeout(hideControl, 2000);
-  }
-
-  function hideControl() {
-    centerControl.style.opacity = "0";
-    centerControl.style.pointerEvents = "none";
-  }
-
-  video.addEventListener("click", () => {
-    if (centerControl.style.opacity === "1") {
-      togglePlayPause();
-      showControl();
-    } else {
-      showControl();
-    }
-  });
-
-  video.addEventListener("ended", () => {
-    video.muted = true;
-    video.loop = true;
-    video.play();
-    btnWrapper.style.display = "block";
-    hideControl();
-  });*/
 
 /////////////////////////////////////////////////////
 <!-- AOS JS -->
@@ -622,7 +543,6 @@ logoObserver.observe(logoSection);
 ////////////////////////////////////
 
 </script>
-
   <!--</script>-->
 </body>
 

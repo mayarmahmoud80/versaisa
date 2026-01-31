@@ -2858,9 +2858,16 @@
 ////////////////////////////////////
   window.addEventListener('scroll', () => {
     const header = document.querySelector('.header-main');
+    if (!header) return;
     if (window.scrollY > 50) {
-      header.style.backgroundColor = 'rgba(0, 0, 0, 0.801)';
-    } else {
+      /*header.style.backgroundColor = 'rgba(0, 0, 0, 0.801)';*/
+      header.style.backgroundColor = '#302b70d9';
+      header.style.backdropFilter = 'blur(6px)';
+      header.style.webkitBackdropFilter = 'blur(6px)';
+    }
+    else {
       header.style.backgroundColor = 'transparent';
+      header.style.backdropFilter = '';
+      header.style.webkitBackdropFilter = '';
     }
   });

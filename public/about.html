@@ -1,40 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 
 <head>
   <script src="assets/vendor/jquery-3.7.1.min.js"></script>
   <script src="assets/js/components.js"></script>
+
+ <style>
+
+.success-card {
+  flex: 0 0 200px;
+  background-image: url(assets/imgs/projectBG.svg);
+  background-color: #80808020;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 800px) {
+  .header-area-2{  background-color: rgb(48 43 112) !important;}
+}
+</style>
+
 </head>
+
 
 <body class="body-wrapper dark body-page-inner font-heading-sequelsans-romanbody" style="padding-top: 80px;">
 
   <!-- Preloader -->
-  <!--<div id="preloader">
-    <div class="roya">
-      <span>R</span>
-      <span>O</span>
-      <span>Y</span>
-      <span>A</span>
-    </div>
-  </div>
-
-  
- <script>
-    window.addEventListener("load", () => {
-      const preloader = document.getElementById("preloader");
-
-      preloader.classList.add("hidden");
-
-      setTimeout(() => {
-        preloader.style.display = "none";
-        document.body.classList.add("loaded");
-
-        // ✅ إعادة التمرير
-        document.body.style.overflow = "auto";
-        document.documentElement.style.overflow = "auto";
-      }, 700);
-    });
-  </script>-->
 
   <div id="preloader">
     <div id="container" class="container-preloader">
@@ -46,6 +36,7 @@
       <div class="loader-section section-right"></div>
     </div>
   </div>
+  
   <!-- Sroll to top -->
   <div class="progress-wrap">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -54,362 +45,266 @@
   </div>
 
   <!-- side toggle start -->
-  <aside class="fix">
-  </aside>
+  <aside class="fix"></aside>
+
   <div class="offcanvas-overlay"></div>
   <!-- side toggle end -->
 
   <!-- Header area start -->
-<header class="header-area-2">
-</header>
-  <!-- Header area end -->
+<header class="header-area-2 index_1 pt-3" style="background-color: transparent;"></header>
 
+  <a id="whatsapp-btn" href="https://wa.me/0559604044" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" alt="واتساب">
+  </a>
+  <!-- Header area end -->
   <div class="has-smooth" id="has_smooth"></div>
   <div id="smooth-wrapper">
-    <div id="smooth-content">
-
+    <div id="smooth-content">    
       <main>
-        <!-- page title area start  -->
-        <section class="page-title-area">
-          <div class="container large">
-            <div class="page-title-area-inner section-spacing-top">
-              <div class="page-title-wrapper">
-                <h2 class="page-title fade-anim">Since 2022</h2>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- page title area end  -->
+       
+<section class="section-versailles">
 
-        <!-- about area start  -->
-        <section class="about-area-details">
-          <div class="container large">
-            <div class="about-area-details-inner">
-              <div class="section-header fade-anim">
-                <div class="section-title-wrapper">
-                  <div class="subtitle-wrapper">
-                    <span class="section-subtitle">About Roya</span>
+  <h1 class="text-white">عن فرساي</h1>
+  <div class="row align-items-center justify-space-between g-5" style="justify-content: space-between;">
+    <div class="col-12 col-md-5 mx-auto">
+                      <p class="page-title paragraph text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" style="line-height: 1.6; ">
+                        اكتشف مشاريعنا المميزة من عام 2006، التي تعكس التزامنا بالجودة والابتكار في جوانب التطوير العقاري.
+                      </p>
                   </div>
-                  <div class="title-wrapper">
-                    <h2 class="section-title font-sequelsans-romanbody">A strategic marketing agency with a creative soul. <br> Our mission is to turn your vision into a brand that inspires and succeeds at every touchpoint.</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="section-content-wrapper fade-anim">
-                <div class="info-list">
-                  <ul>
-                    <li>Strategic Imagination</li>
-                    <li>Smart Planning</li>
-                    <li>Creative Execution</li>
-                  </ul>
-                </div>
-                <div class="section-content">
-                  <div class="text-wrapper" data-direction="right">
-                    <p class="text">As a full‑service, 360° agency, we transform ideas into brands that leave a memorable impact. We create content that sticks in people's minds and brings your brand closer to your audience.</p>
-                    <p class="text">We believe in strategy first. Creativity alone is not enough; every great idea needs a strong strategy to guide it. We plan meticulously and execute intelligently to produce campaigns that make a difference and deliver measurable growth.</p>
-                  </div>
-                  <div class="btn-wrapper" data-direction="right">
-                    <a href="services.html" class="rr-btn">
-                      <span class="btn-wrap">
-                        <span class="text-one">Explore Services</span>
-                        <span class="text-two">Explore Services</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="moving-gallery fade-anim">
-            <ul class="wrapper-gallery">
-              <li>
-  <img src="assets/imgs/roya-imgs/roya_office/3.jpg" alt="Team brainstorming">
-</li>
-<li>
-  <img src="assets/imgs/roya-imgs/roya_office/2.jpg" alt="Creative office">
-</li>
-<li>
-  <img src="assets/imgs/roya-imgs/roya_office/1_2.jpg" alt="Marketing strategy">
-</li>
-<li>
-  <img src="assets/imgs/roya-imgs/roya_office/4.jpg" alt="Business meeting">
-</li>
-<li>
-  <img src="assets/imgs/roya-imgs/roya_office/img.jpg" alt="Creative workspace">
-</li>
 
-            </ul>
-          </div>
-        </section>
-        <!-- about area end  -->
-
- 
-
-        <!-- info area start  -->
-        <section class="info-area-page-about">
-          <div class="container large">
-            <div class="info-area-page-about-inner section-spacing-top">
-
-              <div class="section-header fade-anim">
-                <div class="section-title-wrapper">
-                  <div class="subtitle-wrapper">
-                    <span class="section-subtitle">Who are we?</span>
-                  </div>
-                  <div class="title-wrapper">
-                    <h2 class="section-title font-sequelsans-romanbody">We deliver creative
-                      ideas to a crowded world.</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="counter-wrapper-box fade-anim">
-                <div class="counter-wrapper">
-                  <div class="funfact-item" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text">Satisfied clients</p>
-                    <h3 class="number t-counter counter" data-target="200">+0</h3>
-                  </div>
-                  <div class="funfact-item" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text">Projects completed</p>
-                    <h3 class="number t-counter counter" data-target="200">0+</h3>
-                  </div>
-                  <div class="funfact-item" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text">Years of experience</p>
-                    <h3 class="number t-counter counter" data-target="12">0+</h3>
-                  </div>
-                  <div class="funfact-item" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text">Client satisfaction</p>
-                    <h3 class="number t-counter">95%</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- info area end  -->
-
-        <!-- client area start  -->
-        <div class="client-area-page-about">
-          <div class="client-area-page-about-inner section-spacing">
-            <div class="container large">
-              <div class="section-header fade-anim">
-                <div class="text-wrapper">
-                  <p class="text">Help to brands growing up and show
-                    their success stories to the world</p>
-                </div>
-              </div>
-            </div>
-            <div class="clients-wrapper-box fade-anim">
-              <div class="clients-wrapper">
-                <div class="swiper client-slider-active">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <div class="client-box img">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-2.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-1.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-3.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-4.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-6.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-7.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-8.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand-9.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand1.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand11.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand2.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand3.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand4.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand5.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand6.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand8.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand9.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/future.png" alt="image">
-                      </div>
-                    </div>
-                    <div class="swiper-slide">
-                      <div class="client-box">
-                        <img src="assets/imgs/roya-imgs/project_logo/brand7.png" alt="image">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
+    <div class="col-12 col-md-6" style="padding: 10px;">
+      <div class="carousel">
+        <div class="slide active">
+          <img src="assets/imgs/project/01.jpg">
+          <div class="slide-text"><h2>فرساي 1</h2></div>
         </div>
-        <!-- client area end  -->
+        <div class="slide">
+          <img src="assets/imgs/project/02.jpg">
+          <div class="slide-text"><h2>فرساي 2</h2></div>
+        </div>
+        <div class="slide">
+          <img src="assets/imgs/project/03.jpg">
+          <div class="slide-text"><h2>فرساي 3</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/04.jpg">
+          <div class="slide-text"><h2>فرساي 4</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/05.jpg">
+          <div class="slide-text"><h2>فرساي 5</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/06.jpg">
+          <div class="slide-text"><h2>فرساي 6</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/07.jpg">
+          <div class="slide-text"><h2>فرساي 7</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/08.jpg">
+          <div class="slide-text"><h2>فرساي 8</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/09.jpg">
+          <div class="slide-text"><h2>فرساي 9</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/10.jpg">
+          <div class="slide-text"><h2>فرساي 10</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/11.jpg">
+          <div class="slide-text"><h2>فرساي 11</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/13.jpg">
+          <div class="slide-text"><h2>فرساي 13</h2></div>
+        </div>
+          <div class="slide">
+          <img src="assets/imgs/project/14.jpg">
+          <div class="slide-text"><h2>فرساي 14</h2></div>
+        </div>
+        <div class="dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
 
-        <!-- media area start  -->
-        <section class="media-area-page-about">
-          <div class="container large">
-            <div class="media-area-page-about-inner">
-              <div class="section-content-wrapper fade-anim">
-                <div class="area-thumb parallax-view">
-                  <img src="assets/imgs/roya-imgs/roya_banner_about.jpg" height="auto" alt="roya_image" data-speed="0.8" loading="lazy">
-                </div>
-                <div class="section-content">
-                  <div class="section-title-wrapper">
-                    <div class="title-wrapper">
-                      <h2 class="section-title font-sequelsans-romanbody">Our Initiatives: Making a Positive Impact Beyond Marketing</h2>
-                    </div>
-                  </div>
-                  <div class="text-wrapper">
-                    <p class="text">We work on projects that help our society and bring people together.</p>
-                  </div>
-                  <div class="btn-wrapper">
-                    <a href="contact.html" class="rr-btn">
-                      <span class="btn-wrap">
-                        <span class="text-one">Learn More</span>
-                        <span class="text-two">Learn More</span>
-                      </span>
-                    </a>
-                  </div>
-                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-              </div>
+      <section class="projects mt-10">
+        <div class="container-fluid px-5">
+
+          <div class="row d-flex justify-content-between gap-20">
+            <div class="col-12 col-md-5 mb-5">
+              <p class="about_text1 bold" >
+تسعى فرساي العقارية لرفع مستوى التجربة السكنية والاستثمارية في سوق العقارات السعودي.
+فمنذ عام 2006 طورت فرساي 21 مشروع سكنيًا في أرقى أحياء الرياض بجودة عالية وتصاميم معاصرة.
+              </p>
+            </div>
+            <div class="col-12 col-md-6 mb-5">
+              <p class="">
+   مشاريع فرساي تقع في مدينة الرياض وتجمع بين الموقع المميز والبنية التحتية والتكامل التخطيطي الذي يلبي احتياجات الأسر والمستثمرين على حدًا سواء. نحرص في فرساي على تقديم نماذج وحدات تناسب مختلف أنماط الحياة.
+              </p>
             </div>
           </div>
-        </section>
-        <!-- media area end  -->
 
- 
+        </div>
+      </section>
 
-        <!-- team area start  -->
-        <!--<section class="team-area-about-page">
-          <div class="container large">
-            <div class="team-area-about-page-inner section-spacing-top">
-              <div class="section-header fade-anim">
-                <div class="section-title-wrapper">
-                  <div class="subtitle-wrapper">
-                    <span class="section-subtitle">Our Team</span>
-                  </div>
-                  
-                  <div class="title-wrapper">
-                    <h2 class="section-title font-sequelsans-romanbody">Meet the talented
-                      squad, behind the
-                      creativity</h2>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="team-wrapper-box fade-anim">
-                <div class="team-wrapper">
-                  <div class="team-box">
-                    <div class="thumb">
-                      <a href="team-details.html"><img src="assets/imgs/roya-imgs/about/about-.jpg" alt="image"></a>
-                    </div>
-                    <div class="content">
-                      <h3 class="name"><a href="team-details.html">James David</a></h3>
-                      <span class="post">CEO & Founder</span>
-                    </div>
-                  </div>
-                  <div class="team-box">
-                    <div class="thumb">
-                      <a href="team-details.html"><img src="assets/imgs/roya-imgs/about/about-1.jpg" alt="image"></a>
-                    </div>
-                    <div class="content">
-                      <h3 class="name"><a href="team-details.html">Brenda C. Janet</a></h3>
-                      <span class="post">Lead Developer</span>
-                    </div>
-  
-                  </div>
-                  <div class="team-box">
-                    <div class="thumb">
-                      <a href="team-details.html"><img src="assets/imgs/roya-imgs/about/about1.jpg" alt="image"></a>
-                    </div>
-                    <div class="content">
-                      <h3 class="name"><a href="team-details.html">Martin Carlos</a></h3>
-                      <span class="post">Lead Designer</span>
-                    </div>
-                  </div>
-                  <div class="team-box">
-                    <div class="thumb">
-                      <a href="team-details.html"><img src="assets/imgs/roya-imgs/about/about_-.jpg" alt="image"></a>
-                    </div>
-                    <div class="content">
-                      <h3 class="name"><a href="team-details.html">Garry J. Coburn</a></h3>
-                      <span class="post">Project Manager</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <section class="mt-10">
+        <div class="container">
+
+          <div class="row d-flex justify-content-around">
+            <div class="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center mb-2"
+            style="border: 1px solid transparent; clip-path: polygon(40% 8%, 0% 8%, 0% 80%, 20% 100%, 100% 80%, 100% 0%, 45% 0%); background-color: #80808014; padding: 6% 10px;" >
+            <i class="fa-solid fa-eye my-3" style="font-size: 30px; color: #808080f0;"></i>
+
+              <h5 class="text-black bold">رؤيتنا</h5>
+              <p class="font-16 text-center">
+
+في فرساي نرى أن جودة البناء واختيار الموقع الإستراتيجي هما جوهر وجودنا في السوق السعودي.
+<br>
+وتنفيذ مشاريع تتسم بالابتكار والجودة العالية عن طريق تقنيات البناء الحديثة.
+              </p>
             </div>
-          </div>
-        </section>-->
-        <!-- team area end  -->
+<div class="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center py-5 mb-2"
+            style="border: 1px solid transparent; clip-path: polygon(60% 8%, 100% 8%, 100% 80%, 80% 100%, 0% 80%, 0% 0%, 55% 0%);  background-color: #80808014; padding: 6% 10px;" >
+            <i class="fa-solid fa-bullseye  my-3" style="font-size: 30px; color: #808080f0;"></i>
 
+              <h5 class="text-black bold">رسالتنا</h5>
+              <p class="font-16 text-center">
+تقديم تجربة شراء سلسلة عن طريق المصداقية في التعامل، بالإضافة لتقديم قيمة طويلة المدى من خلال تقديم ضمانات على الهيكل الانشائي لمدة 10 سنوات وضمانات اخرى تصل الى 25 سنة .
+              </p>
+            </div>
+                    </div>
+
+        </div>
+      </section>
+
+
+      <section class="mt-10 p-5" style="background-image: url(assets/imgs/projectBG.svg); background-color: #80808020;">
+        <div class="container">
+
+          <div class="row">
+            <h2 class="text-black bold">لماذا تختار فرساي؟</h2>
+            <p class=""></p>
+          </div>
+
+          <div class="row d-flex justify-content-around py-5 g-2">
+            <div class="col-12 col-md-3 bg-white d-flex flex-column align-items-center justify-content-center py-5" style="border-radius: 20px; background: linear-gradient(145deg, #f5f5fa, #e8e8f5)!important;"> 
+             <i class="fa-solid fa-check-circle mb-3" style="font-size: 30px; color: #808080f0;"></i>
+              <p class="text-black text-center font-16 bold">تنفيذ عالي الجودة وخبرات تطوير عقاري متميزة</p>
+            </div>
+
+            <div class="col-12 col-md-3 bg-white d-flex flex-column align-items-center justify-content-center py-5" style="border-radius: 20px; background: linear-gradient(145deg, #f5f5fa, #e8e8f5)!important;"> 
+             <i class="fa-solid fa-location-dot mb-3" style="font-size: 30px; color: #808080f0;"></i>
+              <p class="text-black text-center font-16 bold">موقع استراتيجي يسهل الوصول إلى أهم الخدمات والمرافق</p>
+            </div>
+
+            <div class="col-12 col-md-3 bg-white d-flex flex-column align-items-center justify-content-center py-5" style="border-radius: 20px; background: linear-gradient(145deg, #f5f5fa, #e8e8f5)!important;"> 
+             <i class="fa-solid fa-layer-group mb-3" style="font-size: 30px; color: #808080f0;"></i>
+              <p class="text-black text-center font-16 bold">خيارات متعددة للوحدات تناسب الاحتياجات المختلفة</p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <section id="our-success" class="success-section p-5">
+  <div class="container text-center">
+    <h2 class="section-title mb-4" style="color: gray;">نجاحنا</h2>
+    <p class="section-desc mb-5">
+      نفخر بما حققناه من إنجازات وإننا دائماً نحرص على تقديم أفضل المشاريع لعملائنا.
+    </p>
+
+    <div class="success-cards-wrapper">
+      <div class="success-card">
+        <div class="icon-wrapper">
+          <img src="https://img.icons8.com/ios-filled/64/ffffff/building.png" alt="مشاريع">
+        </div>
+        <h3 class="success-number" data-target="150">0</h3>
+        <p class="success-text">مشروع مكتمل</p>
+      </div>
+
+      <div class="success-card">
+        <div class="icon-wrapper">
+          <img src="https://img.icons8.com/ios-filled/64/ffffff/handshake.png" alt="عملاء">
+        </div>
+        <h3 class="success-number" data-target="1200">0</h3>
+        <p class="success-text">عميل سعيد</p>
+      </div>
+
+    
+      <div class="success-card">
+  <div class="icon-wrapper">
+    <img src="https://img.icons8.com/ios-filled/64/ffffff/world-map.png" alt="مناطق المشاريع">
+  </div>
+  <h3 class="success-number" data-target="10">0</h3>
+  <p class="success-text">مناطق المشاريع</p>
+</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const counters_1 = document.querySelectorAll('.success-number');
+const speed = 200; 
+
+const isInViewport = (elem) => {
+  const bounding = elem.getBoundingClientRect();
+  return bounding.top < window.innerHeight && bounding.bottom >= 0;
+};
+
+const runCounter = (counter) => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = Math.ceil(target / speed);
+    if (count < target) {
+      counter.innerText = count + increment;
+      setTimeout(updateCount, 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  updateCount();
+};
+
+let counterRun = false;
+window.addEventListener('scroll', () => {
+  if (!counterRun) {
+    counters_1.forEach(counter => {
+      if (isInViewport(counter)) {
+        runCounter(counter);
+        counterRun = true;
+      }
+    });
+  }
+});
+</script>
 
       </main>
 
       <!-- footer area start  -->
-      <footer class="footer footer-area-inner-page section-spacing-top">
-        
+      <footer class="footer-area-inner-page section-spacing-top">
       </footer>
       <!-- footer area end  -->
 
@@ -435,44 +330,12 @@
   <script src="assets/vendor/throwable.js"></script>
   <script src="assets/js/magiccursor.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-<!-- Counter Animation -->
-<script>
-  const counters = document.querySelectorAll('.counter');
-
-  const startCounter = (entry) => {
-    const counter = entry.target;
-    const target = +counter.getAttribute('data-target');
-    let count = 0;
-    const increment = target / 100;
-
-    const update = () => {
-      count += increment;
-      if (count < target) {
-        counter.innerText = `${Math.floor(count)}+`;
-        requestAnimationFrame(update);
-      } else {
-        counter.innerText = `${target}+`;
-      }
-    };
-    update();
-  };
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startCounter(entry);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 1.0 });
-
-  counters.forEach(counter => observer.observe(counter));
-
-  AOS.init();
-</script>
 
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 
 <head>
   <script src="assets/vendor/jquery-3.7.1.min.js"></script>
@@ -36,57 +36,74 @@
   <!-- side toggle end -->
 
   <!-- Header area start -->
-<header class="header-area-2"></header>
+<header class="header-area-2 index_1 pt-3" style="background-color: transparent!important;"></header>
+
+  <a id="whatsapp-btn" href="https://wa.me/0559604044" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" alt="واتساب">
+  </a>
   <!-- Header area end -->
   <div class="has-smooth" id="has_smooth"></div>
   <div id="smooth-wrapper">
     <div id="smooth-content">    
-      <main>
-        <!-- page title area start  -->
-         <section class="page-title-area page-title-wrapper">
+      <main style="background: linear-gradient(145deg, #f5f5fa, #e8e8f5)!important">
+        <section class="page-title-area text-center" style="height: 100vh; background-image: url(assets/imgs/projectBG.svg); background-color:#2b1a3b; background-color: rgb(48 43 112); display: flex; align-items: center;">
           <div class="container large">
-            <div class="page-title-area-inner section-spacing-top py-5">
-              <div class="page-title-wrapper m-0">
-                <h2 class="page-title fade-anim">Projects</h2>
+            <div class="row justify-content-center">
+              
+              <div class="col-lg-8">
+                <div class="page-title-heading" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                  <h1 class="title text-white">مشاريعنا</h1>
+                </div>
               </div>
+
+              <div class="col-lg-8">
+                <div class="page-title-paragraph mt-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                  <p class="text text-white" style="font-weight: 100;">اكتشف مجموعة مشاريعنا المميزة التي تعكس التزامنا بالجودة والابتكار في كل جانب من جوانب التطوير العقاري.</p>
+                </div>
+              <div>
+
             </div>
           </div>
         </section>
-        <section class="work-area-work-page">
-          <div class="work-area-work-page-inner">
-            <div class="works-wrapper-box">
-              <div class="container large">
-                <div class="works-wrapper-6" id="portfolio-projects">
-                  <!-- Projects will be loaded dynamically from projects.json -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section class="about-area-details">
-          <div class="container large">
-            <div class="about-area-details-inner">
-              <div class="section-header fade-anim">
+      
+      <section class="projects mt-10 mb-5">
+  <div class="container-fluid ">
 
-              </div>
-              <div class="section-content-wrapper fade-anim">
-                <div class="info-list">
-                </div>
-                <div class="section-content">
-                  <div class="text-wrapper" data-direction="right">
-                    <p class="text">As a full‑service, 360° agency, we transform ideas into brands that leave a memorable impact. We create content that sticks in people's minds and brings your brand closer to your audience.</p>
-                    <p class="text">We believe in strategy first. Creativity alone is not enough; every great idea needs a strong strategy to guide it. We plan meticulously and execute intelligently to produce campaigns that make a difference and deliver measurable growth.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="d-flex flex-column h-100 mb-4 text-center">
+      <h2 class="mb-3 text-black bold">احدث المشاريع</h2>
+      <p class="font-16">نقدم لك افضل وارقى المشاريع العقارية المميزة في المملكة العربية السعودية</p>
+    </div>
+    
+    <div class="filter-parent mb-5 d-flex flex-wrap justify-content-between gap-2">
 
-        </section>
-        <!-- about area end  -->
+      <div class="filter-parent mb-5 d-flex flex-wrap justify-content-center gap-2">
+      <button class="filter-btn active" data-type="الكل">الكل</button>
+      <button class="filter-btn" data-type="تاون هاوس">تاون هاوس</button>
+      <button class="filter-btn" data-type="أدوار">أدوار</button>
+      <button class="filter-btn" data-type="شقق">شقق</button>
+      <button class="filter-btn" data-type="فلل">فلل</button>
+      <button class="filter-btn" data-type="بنتهاوس">بنتهاوس</button>
+      </div>
+
+      <div class=" mx-3">
+        <input type="search" id="projectSearch" placeholder="البحث عن مشروع..." class="ms-3 p-2" style="font-family: auto; min-width:250px; border:1px solid #ccc; border-radius:30px;">
+      </div>
+      
+    </div>
 
 
+
+    <div class="position-relative ">
+      <div class="projects-scroll">
+        <div class="row d-flex justify-content-around g-5 mx-0"  id="portfolio-projects">
+
+        </div>
+  </div>
+    </div>
+
+  </div>
+</section>
 
       </main>
 
@@ -117,53 +134,12 @@
   <script src="assets/vendor/throwable.js"></script>
   <script src="assets/js/magiccursor.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/script.js"></script>
 <script>
   AOS.init();
 </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <!-- Portfolio Projects Dynamic Content -->
-  <script>
-    // Load all projects on portfolio page
-    async function loadPortfolioProjects() {
-      try {
-        const response = await fetch('assets/data/projects.json');
-        const projects = await response.json();
-        
-        const projectsContainer = document.getElementById('portfolio-projects');
-        
-        if (projectsContainer && projects.length > 0) {
-          projectsContainer.innerHTML = '';
-          
-          projects.forEach(project => {
-            const projectHTML = `
-              <div class="work-box fade-anim">
-                <div class="thumb">
-                  <div class="image scale" data-cursor-text="View Details" data-cursor-text-red>
-                    <a href="portfolio-details.html?id=${project.id}"><img src="${project.banner}" alt="${project.title}"></a>
-                  </div>
-                </div>
-                <div class="content text-center">
-                  <h3 class="title"><a href="portfolio-details.html?id=${project.id}">${project.title}</a></h3>
-                  <div class="meta">
-                    <span class="date">(${project.year})</span>
-                  </div>
-                </div>
-              </div>
-            `;
-            projectsContainer.innerHTML += projectHTML;
-          });
-        }
-      } catch (error) {
-        console.error('Error loading portfolio projects:', error);
-        // Fallback to show static content if JSON loading fails
-      }
-    }
-    
-    // Load projects when page loads
-    document.addEventListener('DOMContentLoaded', loadPortfolioProjects);
-  </script>
 
 </body>
 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+  <script src="assets/vendor/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/components.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 { font-size: 2rem; margin-bottom: 5px; }
+    p { font-size: 1rem; margin-bottom: 10px; }
+    .project-images { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px; }
+    .project-images img { /*height: 250px;*/ border-radius: 10px; object-fit: cover; }
+    .units-table { border-collapse: collapse; margin-bottom: 20px; background-color: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .units-table th, .units-table td { padding: 12px 15px; text-align: center; }
+    .units-table th { background-color: #45423D; color: white; font-weight: bold; }
+    .units-table tr:nth-child(even) { background-color: #f5f5f5; }
+    .btn { display: inline-block; padding: 8px 16px; border-radius: 8px; text-decoration: none; cursor: pointer; transition: all 0.3s; font-weight: bold; }
+    .btn-secondary { background-color: #f5f5f5; color: #45423D; border: 1px solid #ccc; }
+    .btn-secondary:hover { background-color: #e0e0e0; }
+    .summary { background-color: #fff; padding: 15px 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .summary p { margin: 5px 0; }
+    .pagination { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+    .pagination button { padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; background-color: white; }
+    .pagination button.active { background-color: #45423D; color: white; border-color: #45423D; }
+    #project_page h2{color: black!important; font-weight:600;}
+    #smooth-content{margin-top: 160px;}
+    @media only screen and (max-width: 767px) {
+  .units-table {order: 2;}
+  .summary{order: -1;}
+    #smooth-content{margin-top: 100px;}
+
+}
+  </style>
+</head>
+
+
+<body class="body-wrapper dark body-page-inner font-heading-sequelsans-romanbody" style="padding-top: 80px;">
+
+  <!-- Preloader -->
+
+  <div id="preloader">
+    <div id="container" class="container-preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+
+      </div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+  </div>
+  
+  <!-- Sroll to top -->
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+    </svg>
+  </div>
+
+  <!-- side toggle start -->
+  <aside class="fix"></aside>
+
+  <div class="offcanvas-overlay"></div>
+  <!-- side toggle end -->
+
+  <!-- Header area start -->
+<header class="header-area-2 index_1 pt-3" style="background-color: transparent!important;"></header>
+
+  <a id="whatsapp-btn" href="https://wa.me/0559604044" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="38" alt="واتساب">
+  </a>
+  <!-- Header area end -->
+  <div class="has-smooth" id="has_smooth"></div>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">    
+      <main style="background: linear-gradient(145deg, #f5f5fa, #e8e8f5)!important">
+
+
+        <div class="container" id="project_page">
+    <h2 id="proj-title">مشروع فرساي 14</h2>
+    <p id="proj-location">الرياض، حي الفرسان</p>
+
+    <div class="project-images justify-content-center w-100" id="proj-images"></div>
+<div class="row d-flex justify-content-between">
+    <table class="units-table col-12 col-md-8 my-3">
+      <thead>
+        <tr>
+          <th>رقم الوحدة</th>
+          <th>الدور</th>
+          <th>النوع</th>
+          <th>المساحة (م²)</th>
+          <th>السعر</th>
+          <th>حجز الوحدة</th>
+        </tr>
+      </thead>
+      <tbody id="units-table-body"></tbody>
+    </table>
+
+    <div class="summary col-10 col-md-3 d-flex flex-column justify-content-center align-items-center m-auto my-3">
+      <p>المساحات: <span id="summary-space"></span></p>
+      <p>أسعار تبدأ من: <span id="summary-price"></span></p>
+      <p>نوع الوحدات: <span id="summary-types"></span></p>
+      <p>المدينة: <span id="summary-city"></span></p>
+      <p>حالة المشروع: <span id="summary-status"></span></p>
+      <div class="card-btn d-flex justify-content-around w-100" id="project-actions">
+  <a id="whatsapp-link"
+     target="_blank"
+     class="d-block btn-1 col-5 btn mt-3">
+     تواصل معنا
+  </a>
+
+  <a href="#"
+     class="d-block btn-2 col-5 btn mt-3"
+     style="background:rgba(245,245,245,1);">
+     تسجيل اهتمام
+  </a>
+</div>
+
+
+
+    </div>
+</div>
+    <div class="pagination my-5" id="pagination"></div>
+  </div>
+        
+      </main>
+
+      <!-- footer area start  -->
+      <footer class="footer-area-inner-page section-spacing-top">
+      </footer>
+      <!-- footer area end  -->
+
+    </div>
+  </div>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery-3.7.1.min.js"></script>
+  <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.magnific-popup.min.js"></script>
+  <script src="assets/vendor/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/ScrollSmoother.min.js"></script>
+  <script src="assets/vendor/ScrollToPlugin.min.js"></script>
+  <script src="assets/vendor/SplitText.min.js"></script>
+  <script src="assets/vendor/TextPlugin.js"></script>
+  <script src="assets/vendor/customEase.js"></script>
+  <script src="assets/vendor/Flip.min.js"></script>
+  <script src="assets/vendor/jquery.meanmenu.min.js"></script>
+  <script src="assets/vendor/backToTop.js"></script>
+  <script src="assets/vendor/matter.js"></script>
+  <script src="assets/vendor/throwable.js"></script>
+  <script src="assets/js/magiccursor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+<script>
+    window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header-main');
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.style.backgroundColor = 'rgba(0, 0, 0, 0.801)';
+      header.style.backdropFilter = 'blur(6px)';
+      header.style.webkitBackdropFilter = 'blur(6px)';
+    } else {
+      header.style.backgroundColor = 'rgba(0, 0, 0, 0.801)';
+      header.style.backdropFilter = 'blur(6px)';
+      header.style.webkitBackdropFilter = 'blur(6px)';
+    }
+  });
+</script>
+<script src="assets/js/script.js"></script>
+</body>
+
+</html>
